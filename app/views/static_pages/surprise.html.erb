@@ -1,0 +1,25 @@
+<h1>Surprise</h1>
+
+<h2>Triángulo 1</h2>
+<% @size.each do |number| %>
+	<%= p "*" * number %>
+	<br/>
+<% end %>
+
+<!--
+<h2>Triángulo 2</h2>
+<% @size.reverse! %>
+<% counter = @size.count %>
+<% @size.each do |number| %>
+	<% line = "*" * (2 * number - 1) %>
+	<% spaces = "&nbsp;" * (@size.count - counter) %>
+	<% counter -= 1 %>
+	<%= p simple_format(spaces + line) %>
+	<br/>
+<% end %>
+-->
+
+<h2>Triangulo 2</h2>
+<% @size.each_with_index do |value, index| %>
+	<%= simple_format("&nbsp;" * index + "*" * value, {}, wrapper_tag: "div") %>
+<% end %>
